@@ -1,11 +1,15 @@
 {
   "name": "vue-tag-textarea",
   "version": "0.1.0",
-  "private": true,
+  "main": "lib/vue-tag-textarea.umd.min.js",
+  "private": false,
+  "license": "MIT",
+  "author": "wisewrong <1005915808@qq.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name vue-tag-textarea --dest lib packages/index.js"
   },
   "dependencies": {
     "vue": "^2.5.17"
