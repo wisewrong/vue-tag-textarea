@@ -44,9 +44,9 @@ Vue.use(VueTagTextarea)
 ## 参数
 
 | 参数 | 说明 | 类型 | 默认值 |
-| ------ | ------ | ------ | ------ | ------ |
+| ------ | ------ | ------ | ------ |
 | tag | 自定义标签名 | String | wise |
-| tools | 配置工具栏 | Array | [ { type: 'link', text: '添加超链接' }, { type: 'tag', text: '添加模版标签' } ] |
+| tools | 配置工具栏 | Array | [{ type: 'link', text: '添加超链接' }, { type: 'tag', text: '添加模版标签' }] |
 | maxlength | 最大字符长度 | String, Number | - |
 
 > 自定义 tag 的时候，需要添加该标签的样式
