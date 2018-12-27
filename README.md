@@ -14,6 +14,7 @@ $ npm install vue-tag-textarea -S
 ``` bash
 # main.js
 import VueTagTextarea from 'vue-tag-textarea'
+import 'vue-tag-textarea/lib/vue-tag-textarea.css'
 Vue.use(VueTagTextarea)
 ```
 

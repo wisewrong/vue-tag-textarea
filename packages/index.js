@@ -12,11 +12,6 @@ const install = function (Vue) {
   })
 }
 
-// const VueTagTextarea = {
-//   version: '0.1.0',
-//   install
-// }
-
 if (typeof window !== 'undefined' && window.Vue) {
   // window.Vue.use(install)
   install(window.Vue)
