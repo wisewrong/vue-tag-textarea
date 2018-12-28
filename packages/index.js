@@ -13,11 +13,10 @@ const install = function (Vue) {
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
-  // window.Vue.use(install)
   install(window.Vue)
 }
 
 export default {
   install,
-  Textarea
+  ...components
 }
