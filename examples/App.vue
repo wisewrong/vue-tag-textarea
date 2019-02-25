@@ -1,30 +1,30 @@
 <template>
   <div id="app">
     <div>
-    <h1>测试 textarea 组件</h1>
-    <div class="container" ref="wise">
-      <button @click="add">add</button>
-      <div v-for="(item, index) in listData" :key="index">
-        <button @click="handleDelete(index)">delete</button>
-        <w-textarea v-model="item.text" :tools="[]"></w-textarea>
-      </div>
-      <w-textarea v-model="testData"
-        tag="wise" ref="testText"
-        maxlength="100"
-        @add="handleAdd">
-        <div v-if="show">
-          <div>
-            <label>模版内容</label>
-            <input type="text" v-model="form.text">
-          </div>
-          <div>
-            <button @click="addTag(form.text)">save</button>
-          </div>
+      <h1 class="title">测试 textarea 组件</h1>
+      <div class="container" ref="wise">
+        <button @click="add">add</button>
+        <div v-for="(item, index) in listData" :key="index">
+          <button @click="handleDelete(index)">delete</button>
+          <w-textarea v-model="item.text" :tools="[]"></w-textarea>
         </div>
-      </w-textarea>
-      <div v-html="testData"></div>
+        <w-textarea v-model="testData"
+          tag="wise" ref="testText"
+          maxlength="100"
+          @add="handleAdd">
+          <div v-if="show">
+            <div>
+              <label>模版内容</label>
+              <input type="text" v-model="form.text">
+            </div>
+            <div>
+              <button @click="addTag(form.text)">save</button>
+            </div>
+          </div>
+        </w-textarea>
+        <div v-html="testData"></div>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -66,4 +66,14 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+#app {
+  .title {
+    text-align: center
+  }
+  .container {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+</style>
