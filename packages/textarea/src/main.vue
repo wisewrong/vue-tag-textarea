@@ -1,7 +1,7 @@
 <template>
-  <div class="w-textarea" ref="wTextarea">
+  <div class="w-textarea w-wrapper" ref="wTextarea">
     <div
-      class="w-textarea_input"
+      class="w-input"
       ref="wTextareaContent"
       :id="contentId"
       @click="inputClick($event)"
@@ -10,16 +10,16 @@
       @keydown.delete="handleDelete($event)"
       @input="handleInput($event.target)"
     ></div>
-    <div class="w-textarea_tools" v-if="tools.length > 0 || maxlength">
-      <button class="w-textarea_tools__item"
+    <div class="w-tools" v-if="tools.length > 0 || maxlength">
+      <button class="w-tools__item w-button"
         v-for="item in tools"
         :key="item.type"
         @click="openTagDialog(item.type)">{{item.text}}</button>
-      <span :class="['w-textarea_tools__text',
+      <span :class="['w-tools__text',
         count.num < 0 ? '__danger' : '']"
         v-if="maxlength">{{count.text}}</span>
     </div>
-    <div class="w-textarea_dialog">
+    <div class="w-dialog">
       <slot></slot>
     </div>
   </div>
@@ -65,6 +65,10 @@ export default {
     maxlength: { // 最大输入长度
       type: [String, Number],
       default: ''
+    },
+    tagColor: { // 模版标签字体颜色
+      type: String,
+      default: '#26a2ff'
     }
   },
   computed: {
@@ -94,6 +98,7 @@ export default {
       // 为自定义的模版标签添加样式，使之不可编辑
       let style = document.createElement('style');
       style.innerHTML = `.w-textarea ${this.tag} {
+        color: ${this.tagColor};
         cursor: default;
         -webkit-user-modify: read-only !important;
       }`;
@@ -202,7 +207,6 @@ export default {
 // 给标签默认样式，不可scoped
 .w-textarea {
   wise {
-    color: #26a2ff;
     padding: 0 1px;
     white-space: nowrap;
     cursor: default;
@@ -216,82 +220,5 @@ export default {
 </style>
 
 <style lang="scss" scoped>
-$borderColor: #dcdfe6;
-$bgColor: #f5f7fa;
-$textColor: #666;
-
-.w-textarea {
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 4px;
-  border: 1px solid $borderColor;
-  margin-bottom: 15px;
-  overflow: hidden;
-  position: relative;
-
-  &_input {
-    width: 100%;
-    min-height: 100px;
-    box-sizing: border-box;
-    padding: 10px;
-    line-height: 1.5;
-    word-break: break-word;
-    // 允许编辑，禁止富文本
-    -webkit-user-modify: read-write-plaintext-only !important;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  &_tools {
-    padding: 0 10px;
-    height: 40px;
-    line-height: 40px;
-    border-top: 1px solid $borderColor;
-    background-color: $bgColor;
-    color: $textColor;
-    font-size: 12px;
-
-    &__item {
-      display: inline-block;
-      line-height: 1;
-      padding: 5px 8px;
-      margin-right: 8px;
-      color: $textColor;
-      cursor: pointer;
-      border: 1px solid $borderColor;
-      border-radius: 4px;
-      background: #fff;
-      transition: all 0.3s;
-
-      &:hover {
-        background: $bgColor;
-        opacity: .7;
-      }
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    &__text {
-      display: inline-block;
-      line-height: 40px;
-      padding: 0 8px;
-      float: right;
-      color: $textColor;
-      cursor: default;
-      transition: all 0.3s;
-
-      &:hover {
-        opacity: 1;
-      }
-
-      &.__danger {
-        color: red;
-      }
-    }
-  }
-}
+@import './index.scss';
 </style>

@@ -1,0 +1,30 @@
+@import '../../_styles/common.scss';
+
+.w-textarea {
+  .w-input {
+    min-height: 100px;
+    // 允许编辑，禁止富文本
+    -webkit-user-modify: read-write-plaintext-only !important;
+  }
+
+  .w-tools {
+    border-top: 1px solid $borderColor;
+
+    &__item {
+      line-height: 1;
+
+      &:hover {
+        background: $bgColor;
+        opacity: .7;
+      }
+    }
+
+    &__text {
+      float: right;
+      
+      &.__danger {
+        color: red;
+      }
+    }
+  }
+}

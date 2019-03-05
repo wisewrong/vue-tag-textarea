@@ -1,7 +1,9 @@
 import Textarea from './textarea/index'
+import Editor from './editor/index'
 
 const components = [
-  Textarea
+  Textarea,
+  Editor
 ]
 
 const install = function (Vue) {

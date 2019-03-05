@@ -1,0 +1,14 @@
+@import '../../../../_styles/common.scss';
+
+.w-tools {
+  &__item {
+    text-align: center;
+    padding: 0px 10px;
+    line-height: 40px;
+    height: 40px;
+
+    &:hover {
+      background-color: $borderColor;
+    }
+  }
+}

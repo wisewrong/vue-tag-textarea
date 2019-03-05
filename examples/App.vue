@@ -6,8 +6,24 @@
         <button @click="add">add</button>
         <div v-for="(item, index) in listData" :key="index">
           <button @click="handleDelete(index)">delete</button>
-          <w-textarea v-model="item.text" :tools="[]"></w-textarea>
+          <w-editor v-model="item.text" :tools="[]"></w-editor>
         </div>
+        <w-editor v-model="testData"
+          tag="wise" ref="testText"
+          maxlength="100"
+          @add="handleAdd">
+          <div v-if="show">
+            <div>
+              <label>模版内容</label>
+              <input type="text" v-model="form.text">
+            </div>
+            <div>
+              <button @click="addTag(form.text)">save</button>
+            </div>
+          </div>
+        </w-editor>
+        <h1>上面是 editor 下面是 textarea</h1>
+
         <w-textarea v-model="testData"
           tag="wise" ref="testText"
           maxlength="100"

@@ -1,0 +1,48 @@
+@import './color.scss';
+
+*:focus {
+  outline: none;
+}
+
+.w-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid $borderColor;
+  margin-bottom: 15px;
+  overflow: hidden;
+  position: relative;
+
+  .w-input {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+
+  .w-button {
+    padding: 5px 8px;
+    border: 1px solid $borderColor;
+    border-radius: 4px;
+    background: #fff;
+    margin-right: 8px;
+  }
+
+  .w-tools {
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    background-color: $bgColor;
+    color: $textColor;
+    font-size: 12px;
+    
+    &__item {
+      display: inline-block;
+      color: $textColor;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+  }
+}
